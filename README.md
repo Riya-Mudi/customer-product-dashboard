@@ -11,7 +11,6 @@ This project presents a multi-page Power BI dashboard built to analyze ecommerce
 - **Page 2 – Product Performance**: Category-wise performance metrics
 - **Page 3 – Customer Demographics**: Age and gender-based insights
 - **Page 4 – Time Trends**: Monthly patterns in churn, returns, and sales
-![KPI Summary](Dashboard_visual/dashboard1.png)
 
 
 ## Key Metrics
