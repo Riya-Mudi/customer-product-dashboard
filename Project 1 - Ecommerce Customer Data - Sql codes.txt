@@ -1,0 +1,116 @@
+Project 1 - Ecommerce Customer Data
+
+SQL code used
+
+1.
+Product performance
+SELECT ProductCategory, 
+       SUM(TotalPurchaseAmount) AS CategoryRevenue,
+       SUM(Quantity) AS TotalUnitsSold
+FROM customer_data
+GROUP BY ProductCategory
+ORDER BY CategoryRevenue DESC;
+
+2.
+average customer spend
+SELECT AVG(CustomerSpend) FROM (
+  SELECT CustomerID, SUM(TotalPurchaseAmount) AS CustomerSpend
+  FROM customer_data
+  GROUP BY CustomerID
+) AS sub;
+
+3.
+female and male return rate
+SELECT gender, 
+  (COUNT(CASE WHEN Returns = 1 THEN 1 END) / COUNT(*)) * 100 AS ReturnRate
+FROM customer_data
+group by gender
+
+4.
+overall return rate
+SELECT 
+  (COUNT(CASE WHEN Returns = '1' THEN 'Yes' END) / COUNT(*)) * 100 AS ReturnRate
+FROM customer_data;
+
+5.
+total returns
+SELECT COUNT(*) AS ReturnedOrders
+FROM customer_data
+WHERE Returns = '1'
+
+6.
+distinct total females and males count
+SELECT  gender,  count(distinct CustomerID)
+FROM customer_data
+group by gender 
+
+7.
+total quantity sold
+SELECT SUM(Quantity) AS TotalRevenue
+FROM customer_data
+
+8.
+total purchase amount
+SELECT SUM(TotalPurchaseAmount) AS TotalRevenue
+FROM customer_data
+
+9.
+unique churned and not churned customers 
+SELECT Churn, COUNT(DISTINCT CustomerID) AS UniqueCustomers
+FROM customer_data
+GROUP BY Churn
+
+10.
+distinct customer count
+select count(distinct CustomerID)
+from customer_data
+
+11.
+total orders (or total count)
+select count(*) 
+from customer_data
+
+12.
+gender - age demographic
+select gender, customerage, count(distinct customerID)
+from customer_data 
+group by gender, customerage
+
+13.
+churn rate = churn count of distinct customers / total count of distinct customers 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
